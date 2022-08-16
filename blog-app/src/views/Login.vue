@@ -17,8 +17,8 @@
           <el-input placeholder="密码" type="password" v-model="userForm.password"></el-input>
         </el-form-item>
 
-     <el-form-item prop="sms">
-       <el-input placeholder="邮箱" v-model="userForm.sms"></el-input>
+     <el-form-item prop="eamil">
+       <el-input placeholder="邮箱" v-model="userForm.eamil"></el-input>
      </el-form-item>
 
         <el-form-item size="small" class="me-login-button">
@@ -38,7 +38,7 @@
         userForm: {
           account: '',
           password: '',
-		      sms: ''
+          eamil: ''
         },
         rules: {
           account: [
@@ -50,10 +50,6 @@
             {required: true, message: '请输入密码', trigger: 'blur'},
             {max: 10, message: '不能大于10个字符', trigger: 'blur'}
           ],
-		  sms: [
-		    {required: true, message: '请输入用户名', trigger: 'blur'},
-		    {max: 10, message: '不能大于10个字符', trigger: 'blur'}
-		  ]
         }
       }
     },
@@ -63,7 +59,6 @@
 
         this.$refs[formName].validate((valid) => {
           if (valid) {
-
             that.$store.dispatch('login', that.userForm).then(() => {
                 that.$router.go(-1)
             }).catch((error) => {

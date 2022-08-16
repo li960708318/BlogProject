@@ -1,9 +1,10 @@
 import request from '@/request'
 
-export function login(account, password) {
+export function login(account, password,eamil) {
   const data = {
     account,
-    password
+    password,
+    eamil
   }
   return request({
     url: '/login',

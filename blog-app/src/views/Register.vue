@@ -5,7 +5,7 @@
       </video>-->
 
     <div class="me-login-box me-login-box-radius">
-      <h1>码神神之路 注册</h1>
+      <h1>博客 注册</h1>
 
       <el-form ref="userForm" :model="userForm" :rules="rules">
         <el-form-item prop="account">
@@ -17,7 +17,7 @@
         </el-form-item>
 
         <el-form-item prop="password">
-          <el-input placeholder="密码神" type="password" v-model="userForm.password"></el-input>
+          <el-input placeholder="密码" type="password" v-model="userForm.password"></el-input>
         </el-form-item>
 
         <el-form-item size="small" class="me-login-button">
@@ -25,7 +25,7 @@
         </el-form-item>
       </el-form>
 
-  
+
 
     </div>
   </div>

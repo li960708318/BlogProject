@@ -45,6 +45,7 @@ public class LoginServiceImpl implements LoginService {
          */
         String account = loginParam.getAccount();
         String password = loginParam.getPassword();
+        String eamil = loginParam.getEamil();
         if (StringUtils.isBlank(account) || StringUtils.isBlank(password)){
             return Result.fail(ErrorCode.PARAMS_ERROR.getCode(),ErrorCode.PARAMS_ERROR.getMsg());
         }
@@ -56,7 +57,7 @@ public class LoginServiceImpl implements LoginService {
         String token = JWTUtils.createToken(sysUser.getId());
 
         redisTemplate.opsForValue().set("TOKEN_"+token, JSON.toJSONString(sysUser),1, TimeUnit.DAYS);
-        amqpTemplate.convertAndSend("sms.fanou.queue","1546546546");
+        amqpTemplate.convertAndSend("sms.fanou.queue",eamil);
         return Result.success(token);
     }
 

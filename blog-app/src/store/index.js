@@ -33,7 +33,7 @@ export default new Vuex.Store({
   actions: {
     login({commit}, user) {
       return new Promise((resolve, reject) => {
-        login(user.account, user.password).then(data => {
+        login(user.account, user.password,user.eamil).then(data => {
           if(data.success){
             commit('SET_TOKEN', data.data)
             setToken(data.data)
